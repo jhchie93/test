@@ -117,3 +117,37 @@ SELECT * FROM employees WHERE job_id LIKE '%MGR%' OR job_id LIKE '%ASST%';
 SELECT * FROM employees WHERE commission_pct IS NULL;
 SELECT * FROM employees WHERE commission_pct IS NOT NULL;
 
+--ORDER BY 명령
+
+SELECT * FROM employees ORDER BY employee_id DESC;
+SELECT * FROM employees ORDER BY employee_id ASC; --ASC는 생략 가능/기본값
+
+--정렬 열이 2개 이상일때 첫번째 열로 정렬후 두번째 열 정렬
+SELECT department_id, employee_id, first_name, last_name
+FROM employees
+ORDER BY department_id, employee_id;
+
+--별칭으로 정렬
+SELECT department_id, last_name, salary*12 연봉
+FROM employees ORDER BY  연봉 DESC;
+
+--예제1
+SELECT employee_id, first_name, last_name
+FROM employees
+ORDER BY employee_id DESC;
+
+--예제2
+SELECT employee_id, job_id, first_name, last_name, salary
+FROM employees
+WHERE job_id Like '%CLERK%'
+ORDER BY salary DESC;
+
+--예제3
+SELECT department_id 부서번호, employee_id 직원번호, first_name || ' ' || last_name 직원이름, salary
+FROM employees
+WHERE employee_id BETWEEN 120 AND 150
+ORDER BY 부서번호 DESC, salary DESC;
+
+
+
+
