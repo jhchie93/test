@@ -39,3 +39,27 @@ SELECT employee_id 짝수번째, last_name
 FROM employees
 WHERE MOD(employee_id, 2) = 0
 ORDER BY employee_id;
+
+
+--날씨형 함수
+
+SELECT SYSDATE 현재날짜, ROUND (sysdate, 'DD') 일, ROUND (sysdate, 'MM') 월, Round(sysdate, 'YYYY') 년
+, ROUND (MONTHS_BETWEEN('21/10/5', '21/06/10'), 1) 월차이
+FROM DUAL;
+
+SELECT hire_date FROM employees;
+
+--날짜에 더하기 빼기를 하면 => 실제 날짜가 더하거나 빼진다.
+
+SELECT sysdate 오늘, sysdate+1 내일, sysdate -1 어제
+FROM dual;
+
+--예제1
+SELECT sysdate 오늘, hire_date 고용일, MONTHS_BETWEEN(sysdate, hire_date) 고용기간
+FROM employees
+WHERE department_id = 100;
+
+--예제2
+SELECT hire_date, ADD_MONTHS(hire_date, 3 )  , ADD_MONTHS(hire_date, -3) 
+FROM employees
+WHERE employee_id BETWEEN 100 AND 106;

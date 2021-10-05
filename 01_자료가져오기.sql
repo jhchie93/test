@@ -1,7 +1,6 @@
 SELECT *
 FROM departments;
 
-
 -- 2. 특정 열만 조회하기
 SELECT department_id, department_name
 From departments;
